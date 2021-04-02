@@ -1,0 +1,6 @@
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\bin\Debug\Controlador.Libreria.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\bin\Debug\Controlador.Libreria.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\obj\Debug\Controlador.Libreria.csprojAssemblyReference.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\obj\Debug\Controlador.Libreria.csproj.CoreCompileInputs.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\obj\Debug\Controlador.Libreria.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Libreria\obj\Debug\Controlador.Libreria.pdb

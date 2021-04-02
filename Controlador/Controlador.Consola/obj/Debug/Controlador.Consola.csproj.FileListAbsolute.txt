@@ -1,0 +1,10 @@
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\bin\Debug\Controlador.Consola.exe.config
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\bin\Debug\Controlador.Consola.exe
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\bin\Debug\Controlador.Consola.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\bin\Debug\Controlador.Libreria.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\bin\Debug\Controlador.Libreria.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\obj\Debug\Controlador.Consola.csprojAssemblyReference.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\obj\Debug\Controlador.Consola.csproj.CoreCompileInputs.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\obj\Debug\Controlador.Consola.csproj.CopyComplete
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\obj\Debug\Controlador.Consola.exe
+C:\Users\Valeria\Downloads\CAI\Ejercicios\CAI_Ejercicio3-30-03-2021\Controlador\Controlador.Consola\obj\Debug\Controlador.Consola.pdb
