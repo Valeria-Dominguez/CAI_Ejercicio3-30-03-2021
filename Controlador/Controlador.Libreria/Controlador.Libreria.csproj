@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Entidades\Boton.cs" />
     <Compile Include="Entidades\Controlador.cs" />
+    <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
