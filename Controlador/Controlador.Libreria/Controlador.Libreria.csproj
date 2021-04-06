@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Entidades\Boton.cs" />
     <Compile Include="Entidades\Controlador.cs" />
-    <Compile Include="Exceptions\CustomException.cs" />
+    <Compile Include="Exceptions\BotonExistException.cs" />
+    <Compile Include="Exceptions\NoUIntException.cs" />
+    <Compile Include="Exceptions\StrNullorEmptyException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
