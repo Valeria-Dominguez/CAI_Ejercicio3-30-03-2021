@@ -4,110 +4,110 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Controlador.Libreria.Exceptions;
+using Controlador.Libreria.Validaciones;
+
 
 namespace Controlador.Libreria.Entidades
 {
     public class Controlador
     {
-        int _codigoContr;
+        int _codigoControlador;
         List<Boton>_botones;
-        public int CodigoContr
-        {
-            get
-            {
-                return _codigoContr;
-            }
-            set
-            {
-                _codigoContr = value;
-            }
-        }            
-        public List<Boton> Botones
-        {
-            get
-            {
-                return _botones;
-            }
-            set
-            {
-                _botones = value;
-            }
-        }
+       
         public Controlador(int codigoContr)
         {
-            CodigoContr = codigoContr;
-            Botones = new List<Boton>();
+            _codigoControlador = codigoContr;
+            this._botones = new List<Boton>();
         }
        
-        public void AgregarBoton()
+        public string AgregarBoton() 
         {
-            uint cod = 0;
-            string descrip = "";
+            uint codigo = PedirCodigoBoton();
 
-            Console.WriteLine("Ingrese código del botón");
-            if (!uint.TryParse(Console.ReadLine(), out cod))
+            Boton BotonDevuelto = BuscarCodigoTraerBoton(codigo);
+            if (BotonDevuelto == null)
             {
-                throw new NoUIntException("Debe ingresar un entero entre 0 y 4.294.967.295\n");                     
-            }
+                string descripcion = "";
+                descripcion = Validaciones.Validaciones.ValidarStrNoVac("Ingrese descripción\n");
 
-            foreach (Boton b in Botones)
-            {
-                if (b.Codigo == cod)
-                {
-                    throw new BotonExistException("El botón ingresado ya existe");
-                }
+                Boton nuevoboton = new Boton(codigo, descripcion);
+                this._botones.Add(nuevoboton);
+                return "El botón fue agregado con éxito\n";
             }
-
-            Console.WriteLine("Ingrese descripción");
-            descrip = Console.ReadLine();
-            if (descrip == "")
+            else 
             {
-                throw new StrNullorEmptyException("El campo no puede estar vacío");
-            }
-
-            Boton btn = new Boton(cod, descrip);
-            Botones.Add(btn);
-            Console.WriteLine("El botón fue agregado con éxito\n");
-        }
-        public void ListarBotones()
-        {
-            foreach (Boton b in Botones)
-            {
-                Console.WriteLine(b.Codigo);
-            }            
-        }
-        public void EliminarBoton()
-        {
-            uint cod = 0;
-            Console.WriteLine("Ingrese código del botón");
-            if (!uint.TryParse(Console.ReadLine(), out cod))
-            {
-                throw new NoUIntException("Debe ingresar un entero entre 0 y 4.294.967.295\n");
-            }
-            foreach (Boton b in Botones)
-            {
-                if (b.Codigo == cod)
-                {
-                    Botones.Remove(b);
-                    Console.WriteLine("El botón fue eliminado con éxito\n");
-                }
+                throw new BotonExistException("El botón ingresado ya existe\n");
             }
         }
-        public void MostrarDescripcion()
+
+        public string ListarBotones() 
         {
-            uint cod = 0;
-            Console.WriteLine("Ingrese código del botón");
-            if (!uint.TryParse(Console.ReadLine(), out cod))
+            string retorno = "";
+            foreach (Boton boton in this._botones)
             {
-                throw new NoUIntException("Debe ingresar un entero entre 0 y 4.294.967.295\n");
+                retorno = retorno + boton.Codigo + "\n";
             }
-            foreach (Boton b in Botones)
+            if (retorno =="")
             {
-                if (b.Codigo == cod)
+                retorno = "No hay botones ingresados\n";
+            }
+            return retorno;
+        }
+
+        public string EliminarBoton()
+        {
+            string retorno = "";
+            uint codigo = PedirCodigoBoton();
+
+            Boton BotonDevuelto = BuscarCodigoTraerBoton(codigo);
+            if (BotonDevuelto == null)
+            {
+                retorno = "El botón no existe\n";
+            }
+            else
+            {
+                this._botones.Remove(BotonDevuelto);
+               retorno = "El botón fue eliminado con éxito\n";
+            }
+            return retorno;
+        }
+
+        public string MostrarDescripcion()
+        {
+            string retorno = "";
+            uint codigo = PedirCodigoBoton();
+
+            Boton BotonDevuelto = BuscarCodigoTraerBoton(codigo);
+            if (BotonDevuelto==null)
+            {
+                retorno = "El codigo ingresado no existe\n";
+            }
+            else
+            {
+                retorno = (BotonDevuelto.Descripcion + "\n");
+            }
+            return retorno;
+        }
+
+        Boton BuscarCodigoTraerBoton(uint codigo)
+        {
+            Boton valor = null;
+
+            foreach (Boton boton in this._botones)
+            {
+                if (boton.Codigo == codigo)
                 {
-                    Console.WriteLine(b.Descripcion + "\n");
+                    valor = boton;
                 }
             }
+            return valor ;
+        }
+
+        uint PedirCodigoBoton ()
+        {
+            uint valor = 0;
+            valor = Validaciones.Validaciones.ValidarUint("Ingrese código del botón");
+            return valor;
         }
     }
 }

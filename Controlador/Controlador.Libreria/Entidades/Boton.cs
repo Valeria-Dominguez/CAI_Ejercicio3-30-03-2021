@@ -11,37 +11,13 @@ namespace Controlador.Libreria.Entidades
         uint _codigo;
         string _descripcion;
 
-        public uint Codigo
-        {
-            get
-            {
-                return _codigo;
-            }
-            set
-            {
-                _codigo = value;
-            }
-        }
-        public string Descripcion
-        {
-            get
-            {
-                return _descripcion;
-            }
-            set
-            {
-                _descripcion = value;
-            }
-        }
+        internal uint Codigo { get => _codigo; }
+        internal string Descripcion { get => _descripcion; }
 
-        public Boton()
-        {
-
-        }
         public Boton (uint codigo, string descripcion)
         {
-            Codigo = codigo;
-            Descripcion = descripcion;
+            _codigo = codigo;
+            _descripcion = descripcion;
         }
     }
 }

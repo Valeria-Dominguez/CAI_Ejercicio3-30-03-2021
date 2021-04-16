@@ -8,7 +8,7 @@ namespace Controlador.Libreria.Exceptions
 {
     public class BotonExistException : Exception
     {
-        public BotonExistException()
+        public BotonExistException() : base ("El código de botón no existe")
         {
 
         }

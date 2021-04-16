@@ -5,92 +5,64 @@ using System.Text;
 using System.Threading.Tasks;
 using Controlador.Libreria.Entidades;
 using Controlador.Libreria.Exceptions;
+using Controlador.Libreria.Validaciones;
 
 namespace Controlador.Consola
 {
     class Program
     {
+        static Controlador.Libreria.Entidades.Controlador MiControlador;
         static void Main(string[] args)
         {
-            Controlador.Libreria.Entidades.Controlador MiControlador = new Controlador.Libreria.Entidades.Controlador(1);
+            MiControlador = new Controlador.Libreria.Entidades.Controlador(1);
+            MenuPcipal();
 
-            string opcion = "";
-            const string opAgregarBoton = "1";
-            const string opListarBotones = "2";
-            const string opEliminarBoton = "3";
-            const string opMostrarDespcripcion = "4";
-            const string opSalir = "5";
-            do
+            void MenuPcipal()
             {
-                Console.WriteLine("Ingrese una opción:\n" +
-                    opAgregarBoton + ".Agregar Botón\n" +
-                    opListarBotones + ".Listar Botones\n" +
-                    opEliminarBoton + ".Eliminar Boton\n" +
-                    opMostrarDespcripcion + ".Mostrar Descripción\n" +
-                    opSalir + ".Salir\n");
-
-                opcion = Console.ReadLine().ToUpper();
-
-                try
+                string opcion = "";
+                const string opAgregarBoton = "1";
+                const string opListarBotones = "2";
+                const string opEliminarBoton = "3";
+                const string opMostrarDespcripcion = "4";
+                const string opSalir = "5";
+                do
                 {
-                    if (opcion == "")
-                    {
-                        throw new StrNullorEmptyException("El campo no puede estar vacío");
-                    }
+                    opcion = Validaciones.ValidarStrNoVac("Ingrese una opción:\n" +
+                        opAgregarBoton + ".Agregar Botón\n" +
+                        opListarBotones + ".Listar Botones\n" +
+                        opEliminarBoton + ".Eliminar Boton\n" +
+                        opMostrarDespcripcion + ".Mostrar Descripción\n" +
+                        opSalir + ".Salir\n");
+
                     switch (opcion)
                     {
                         case opAgregarBoton:
                             try
                             {
-                                MiControlador.AgregarBoton();
-                            }
-                            catch (NoUIntException NoUIntexe)
-                            {
-                                Console.WriteLine(NoUIntexe.Message);
+                                Console.WriteLine(MiControlador.AgregarBoton());
                             }
                             catch (BotonExistException BtnExistexe)
                             {
                                 Console.WriteLine(BtnExistexe.Message);
                             }
-                            catch (StrNullorEmptyException StrNOEexe)
-                            {
-                                Console.WriteLine(StrNOEexe.Message);
-                            }
                             break;
                         case opListarBotones:
-                            MiControlador.ListarBotones();
+                            Console.WriteLine(MiControlador.ListarBotones());
                             break;
                         case opEliminarBoton:
-                            try
-                            {
-                                MiControlador.EliminarBoton();
-                            }
-                            catch (NoUIntException NoUIntexe)
-                            {
-                                Console.WriteLine(NoUIntexe.Message);
-                            }
+                            Console.WriteLine(MiControlador.EliminarBoton());
                             break;
                         case opMostrarDespcripcion:
-                            try
-                            {
-                                MiControlador.MostrarDescripcion();
-                            }
-                            catch (NoUIntException NoUIntexe)
-                            {
-                                Console.WriteLine(NoUIntexe.Message);
-                            }
+                            Console.WriteLine(MiControlador.MostrarDescripcion());
                             break;
                         default:
                             Console.WriteLine("Opción inválida");
                             break;
                     }
                 }
-                catch (StrNullorEmptyException Exe)
-                {
-                    Console.WriteLine(Exe.Message);
-                }
-            }
-            while (opcion != opSalir);           
+                while (opcion != opSalir);
+            }           
+
         }
     }
 }
